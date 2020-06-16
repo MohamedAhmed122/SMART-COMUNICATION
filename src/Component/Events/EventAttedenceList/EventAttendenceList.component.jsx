@@ -1,14 +1,9 @@
 import React from "react";
 import { List, Image } from "semantic-ui-react";
 
-const EventAttendanceList = () => (
+const EventAttendanceList = ({ attendee: { photoURL } }) => (
   <List.Item>
-    <Image
-      as="a"
-      size="mini"
-      circular
-      src="https://randomuser.me/api/portraits/women/47.jpg"
-    ></Image>
+    <Image as="a" size="mini" circular src={photoURL}></Image>
   </List.Item>
 );
 export default EventAttendanceList;

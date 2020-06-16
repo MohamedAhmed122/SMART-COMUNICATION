@@ -1,20 +1,26 @@
 import React from "react";
 import { Segment, Item, Icon, List, Button } from "semantic-ui-react";
 import EventAttendanceList from "../EventAttedenceList/EventAttendenceList.component";
-const EventListItem = () => (
+const EventListItem = ({
+  event: {
+    title,
+    date,
+    description,
+    venue,
+    hostedBy,
+    hostPhotoURL,
+    attendees
+  },
+}) => (
   <Segment.Group>
     <Segment>
       <Item.Group>
         <Item>
-          <Item.Image
-            size="tiny"
-            circular
-            src="https://randomuser.me/api/portraits/women/43.jpg"
-          />
+          <Item.Image size="tiny" circular src={hostPhotoURL} />
           <Item.Content>
-            <Item.Header as="a">Event Title</Item.Header>
+            <Item.Header as="a">{title}</Item.Header>
             <Item.Description>
-              Hosted by <a href="#home">hosted by</a>
+              Hosted by <a href="#home">{hostedBy}</a>
             </Item.Description>
           </Item.Content>
         </Item>
@@ -22,19 +28,19 @@ const EventListItem = () => (
     </Segment>
     <Segment>
       <span>
-        <Icon name="clock" /> date |
-        <Icon name="marker" /> time
+        <Icon name="clock" />{date} | 
+        <Icon name="marker" />{venue}
       </span>
     </Segment>
     <Segment secondary>
       <List horizontal>
-        <EventAttendanceList />
-        <EventAttendanceList />
-        <EventAttendanceList />
+       {
+         attendees.map(attendee => <EventAttendanceList attendee={attendee} key={attendee.id}/>)
+       }
       </List>
     </Segment>
     <Segment clearing>
-      <span>Descripation will go here</span>
+      <span>{description}</span>
       <Button as="a" color="teal" floated="right" content="View" />
     </Segment>
   </Segment.Group>
