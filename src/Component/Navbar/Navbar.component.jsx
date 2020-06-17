@@ -6,7 +6,7 @@ const Navbar = () => (
   <Menu inverted fixed="top">
     <Container>
       <Menu.Item header>
-        <img src="assets/images/Logo.png" alt="logo" />
+        <img src="/assets/images/Logo.png" alt="logo" />
         Re-vents
       </Menu.Item>
       <Menu.Item name="Events" />

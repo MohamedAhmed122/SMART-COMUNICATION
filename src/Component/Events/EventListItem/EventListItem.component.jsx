@@ -9,6 +9,7 @@ const EventListItem = ({
     venue,
     hostedBy,
     hostPhotoURL,
+    city,
     attendees
   },
 }) => (
@@ -29,13 +30,13 @@ const EventListItem = ({
     <Segment>
       <span>
         <Icon name="clock" />{date} | 
-        <Icon name="marker" />{venue}
+        <Icon name="marker" />{venue} {city}
       </span>
     </Segment>
     <Segment secondary>
       <List horizontal>
        {
-         attendees.map(attendee => <EventAttendanceList attendee={attendee} key={attendee.id}/>)
+        attendees&& attendees.map(attendee => <EventAttendanceList attendee={attendee} key={attendee.id}/>)
        }
       </List>
     </Segment>
