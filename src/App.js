@@ -2,7 +2,7 @@ import React, {
   Fragment
 } from "react";
 import "./App.css";
-import EventDashborad from './Component/Events/EventDashboard/EventDashbord.component'
+import EventDashborad from './Pages/EventDashboard/EventDashbord.component'
 import Navbar from "./Component/Navbar/Navbar.component";
 import {
   Container
