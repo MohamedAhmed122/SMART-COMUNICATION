@@ -1,22 +1,45 @@
 import React, {
   Fragment
 } from "react";
+
 import "./App.css";
+
 import EventDashborad from './Pages/EventDashboard/EventDashbord.component'
+import HomePage from './Pages/HomePage/HomePage'
+import UserDetialedPage from './Pages/userDetailedPage/userDetailed';
+import EventDetailPage from './Pages/EventDetailed/EventDetailed';
+import EventForm from './Component/Events/EventForm/EventForm';
+import SettingsDashboard from './Component/settings/settingsDashboard/settingsDashboard'
+
+
 import Navbar from "./Component/Navbar/Navbar.component";
+
 import {
   Container
 } from "semantic-ui-react";
+
+import { Route } from "react-router-dom";
 
 class App extends React.Component {
   render() {
     return (
       <Fragment >
-      <Navbar />
-      <Container className='main'>
-         <EventDashborad />
-      </Container>
-    </Fragment>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/(.+)' render={()=>(
+          <Fragment >
+            <Navbar />
+            <Container className='main'>
+              
+              <Route path='/events' component={EventDashborad}/>
+              <Route path='/events/:id' component={EventDetailPage}/>
+              <Route path='/profile/:id' component={UserDetialedPage}/>  
+              <Route path='/createEvent' component={EventForm} />
+              <Route path='/settings' component={SettingsDashboard} />
+            </Container>
+         </Fragment>
+        )} />
+      </Fragment>
+      
     );
   }
 }

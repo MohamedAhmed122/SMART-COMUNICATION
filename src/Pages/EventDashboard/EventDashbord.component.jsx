@@ -11,7 +11,7 @@ const dashboardEvents = [
     date: "2020-07-17",
     category: "culture",
     description:
-      "this is the Most Beautiful Party in The Tomsk,There Will Be a Great Discount For All Drinks  ",
+      "English : this is the Most Beautiful Party Free drinks and there will be an artist, and lets dance Russian: это самая красивая вечеринка Бесплатные напитки и будет артист. ",
     city: "Tomsk, Russia",
     venue: "Lenina Street Block No 22, Russia, Tomsk",
     hostedBy: "Bob",
