@@ -3,8 +3,7 @@ import { Menu, Header } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
 const SettingNavbar = () => (
-  <div>
-    <Fragment width={4}>
+    <Fragment>
       <Menu vertical>
         <Header icon="user" attached inverted color="grey" content="Profile" />
         <Menu.Item as={NavLink} to="/settings/basics">
@@ -30,7 +29,7 @@ const SettingNavbar = () => (
         </Menu.Item>
       </Menu>
     </Fragment>
-  </div>
+
 );
 
 export default SettingNavbar;
