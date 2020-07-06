@@ -1,7 +1,8 @@
 import React from "react";
 import { Segment, Item, Icon, List, Button } from "semantic-ui-react";
 import EventAttendanceList from "../EventAttedenceList/EventAttendenceList.component";
-const EventListItem = ({ event, selectedEvent, handleDelete }) => {
+import { Link } from "react-router-dom";
+const EventListItem = ({ event,  handleDelete }) => {
   const {
     title,
     date,
@@ -46,11 +47,11 @@ const EventListItem = ({ event, selectedEvent, handleDelete }) => {
       <Segment clearing>
         <span>{description}</span>
         <Button
-          onClick={() => selectedEvent(event)}
-          as="a"
+          as={Link}
+          to={`/events/${event.id}`}
           color="teal"
           floated="right"
-          content="Update"
+          content="View"
         />
         <Button
           onClick={handleDelete(event.id)}

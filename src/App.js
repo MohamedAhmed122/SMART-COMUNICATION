@@ -27,7 +27,7 @@ class App extends React.Component {
             <Fragment>
               <Navbar />
               <Container className="main">
-                <Route path="/events" component={EventDashborad} />
+                <Route exact path="/events" component={EventDashborad} />
                 <Route path="/events/:id" component={EventDetailPage} />
                 <Route path="/profile/:id" component={UserDetialedPage} />
                 <Route path="/createEvent" component={EventForm} />
