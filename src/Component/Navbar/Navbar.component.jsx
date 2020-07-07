@@ -18,7 +18,7 @@ const Navbar = () => {
           <img src="/assets/images/Logo.png" alt="logo" />
           SMART COMUNICATIONS
         </Menu.Item>
-        <Menu.Item as={NavLink} to="/events" name="Events" />
+        <Menu.Item as={NavLink} exact to="/events" name="Events" />
         <Menu.Item>
           <Button
             as={Link}

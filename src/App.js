@@ -14,7 +14,7 @@ import Navbar from "./Component/Navbar/Navbar.component";
 
 import { Container } from "semantic-ui-react";
 
-import { Route } from "react-router-dom";
+import { Route, withRouter, Switch } from "react-router-dom";
 
 class App extends React.Component {
   render() {
@@ -27,12 +27,14 @@ class App extends React.Component {
             <Fragment>
               <Navbar />
               <Container className="main">
-                <Route exact path="/events" component={EventDashborad} />
-                <Route path="/events/:id" component={EventDetailPage} />
-                <Route path="/profile/:id" component={UserDetialedPage} />
-                <Route path="/createEvent" component={EventForm} />
-                <Route path="/settings" component={SettingsDashboard} />
-                <Route path="/test" component={TestArea} />
+                <Switch key={this.props.location.key}>
+                  <Route exact path="/events" component={EventDashborad} />
+                  <Route path="/events/:id" component={EventDetailPage} />
+                  <Route path="/profile/:id" component={UserDetialedPage} />
+                  <Route exact path={["/createEvent",'/manage/:id']} component={EventForm} />
+                  <Route path="/settings" component={SettingsDashboard} />
+                  <Route path="/test" component={TestArea} />
+                </Switch>
               </Container>
             </Fragment>
           )}
@@ -42,4 +44,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
