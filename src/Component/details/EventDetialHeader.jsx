@@ -19,7 +19,7 @@ const HeaderEvent = ({ events: { category, title, hostedBy, date,id } }) => (
     <Segment basic attached="top" style={{ padding: "0" }}>
       <Image
         style={eventImageStyle}
-        src={`/assets/categoryImages/${category}.jpg`||"/assets/categoryImages/film.jpg"}
+        src={`/assets/categoryImages/${category}.jpg`}
         
         fluid
       />
