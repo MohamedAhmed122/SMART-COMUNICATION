@@ -3,25 +3,32 @@ import { Segment, Form, Button, Grid, Header } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { creatEvent, updateEvent } from "../../../redux/Event/EventActions";
-import {combineValidators,composeValidators,isRequired, hasLengthGreaterThan} from 'revalidate'
+import {
+  combineValidators,
+  composeValidators,
+  isRequired,
+  hasLengthGreaterThan,
+} from "revalidate";
 import FormInput from "../../Form/FormInput";
 import DescriptionInput from "../../Form/DescriptionInput";
+ import PlaceInput from "../../Form/PlaceInput";
+// import PlacesAutocomplete from '../../LocationSearchInput/LocationSearchInput'
 import SelectInput from "../../Form/SelectInput";
 import cuid from "cuid";
 
 const validate = combineValidators({
-  title: isRequired({ message: 'The event title is required' }),
-  category: isRequired({ message: 'Please provide a category' }),
+  title: isRequired({ message: "The event title is required" }),
+  category: isRequired({ message: "Please provide a category" }),
   description: composeValidators(
-    isRequired({ message: 'Please enter a description' }),
-    hasLengthGreaterThan(4)({ message: 'Description needs to be at least 5 characters' })
+    isRequired({ message: "Please enter a description" }),
+    hasLengthGreaterThan(4)({
+      message: "Description needs to be at least 5 characters",
+    })
   )(),
-  city: isRequired('city'),
-  venue: isRequired('venue'),
-  date: isRequired('date')
+  city: isRequired("city"),
+  venue: isRequired("venue"),
+  date: isRequired("date"),
 });
-
-
 
 const category = [
   { key: "drinks", text: "Drinks", value: "drinks" },
@@ -48,7 +55,13 @@ class EventForm extends React.Component {
     }
   };
   render() {
-    const { history, initialValues, invalid ,pristine,submitting } = this.props;
+    const {
+      history,
+      initialValues,
+      invalid,
+      pristine,
+      submitting,
+    } = this.props;
     return (
       <Grid>
         <Grid.Column width={10}>
@@ -78,14 +91,17 @@ class EventForm extends React.Component {
               <Header sub content="Event Location details" color="teal" />
               <Field
                 name="city"
-                component={FormInput}
+                component={PlaceInput}
                 placeholder="Event City"
+
               />
-              <Field
+            <Field
                 name="venue"
                 component={FormInput}
-                placeholder="Event Venue"
+                placeholder="Event venue"
+
               />
+              
               <Field
                 name="date"
                 component={FormInput}
@@ -93,7 +109,12 @@ class EventForm extends React.Component {
                 placeholder="Event Date"
               />
 
-              <Button  disabled={invalid || submitting || pristine} onClick={this.handleSubmit} positive type="submit">
+              <Button
+                disabled={invalid || submitting || pristine}
+                onClick={this.handleSubmit}
+                positive
+                type="submit"
+              >
                 Submit
               </Button>
               <Button
@@ -127,6 +148,11 @@ const action = {
   creatEvent,
   updateEvent,
 };
-export default connect(mapStateToProps, action)(
-  reduxForm({ form: 'eventForm', enableReinitialize: true, validate })(EventForm)
+export default connect(
+  mapStateToProps,
+  action
+)(
+  reduxForm({ form: "eventForm", enableReinitialize: true, validate })(
+    EventForm
+  )
 );
