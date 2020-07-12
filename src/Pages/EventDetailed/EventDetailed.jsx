@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import EventDetialedHeader from "../../Component/details/EventDetialHeader";
-import EventDetialedInfo from "../../Component/details/EventDetialInfo";
-import EventDetialedSideBar from "../../Component/details/EventDetialSidebar";
-import EventDetialedChat from "../../Component/details/EventDetialChat";
+import EventDetialedHeader from "../../Component/EventDetailed/EDHeader";
+import EventDetialedInfo from "../../Component/EventDetailed/EDInfo";
+import EventDetialedSideBar from "../../Component/EventDetailed/EDSideBar";
+import EventDetialedChat from "../../Component/EventDetailed/EDChat";
 
 import { connect } from "react-redux";
 

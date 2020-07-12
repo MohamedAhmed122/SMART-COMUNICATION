@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 
 import { increment, decrement } from "../redux/Test/ReducerActions";
 import { Button } from "semantic-ui-react";
-import LocationSearchInput from "../Component/LocationSearchInput/LocationSearchInput";
+import LocationSearchInput from "./LocationSearchInput/LocationSearchInput";
+import SimpleMap from "./SimpleMap/SimpleMap";
 
 const TestArea = ({ data, increment, decrement }) => (
   <div>
@@ -15,6 +16,9 @@ const TestArea = ({ data, increment, decrement }) => (
     <br />
     <br />
     <LocationSearchInput />
+    <br />
+    <br />
+    <SimpleMap />
   </div>
 );
 const mapDispatchProps = {
