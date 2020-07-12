@@ -1,16 +1,18 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Menu, Container, Button } from "semantic-ui-react";
-import { NavLink, Link } from "react-router-dom";
-
+import { NavLink, Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { openModal } from "../../redux/Modal/ModelAction";
 import SignOut from "./Navbar-Menus/Singout";
 
 import SignIn from "./Navbar-Menus/Singin";
 
-const Navbar = () => {
-  const [authanticated, setAuthanticated]=useState(true)
- const  hondleSignIn=()=> setAuthanticated(true)
- const  hondleSignOut=()=> setAuthanticated(false)
-  
+const Navbar = ({ openModal }) => {
+  const [authanticated, setAuthanticated] = useState(false);
+  const hondleSignIn = () => openModal("LoginModal");
+  const hondleSignOut = () => setAuthanticated(false);
+  const handleRegister = () => openModal("RegisterModal");
+
   return (
     <Menu inverted fixed="top">
       <Container>
@@ -27,12 +29,21 @@ const Navbar = () => {
             positive
             inverted
             content="Create Event"
-            
           />
         </Menu.Item>
-        {authanticated? <SignIn hondleSignOut={hondleSignOut}  /> : <SignOut hondleSignIn={hondleSignIn}  />}
+        {authanticated ? (
+          <SignIn hondleSignOut={hondleSignOut} />
+        ) : (
+          <SignOut
+            hondleSignIn={hondleSignIn}
+            handleRegister={handleRegister}
+          />
+        )}
       </Container>
     </Menu>
   );
 };
-export default Navbar;
+const actions = {
+  openModal,
+};
+export default withRouter(connect(null, actions)(Navbar));

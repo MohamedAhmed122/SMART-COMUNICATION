@@ -9,17 +9,20 @@ import EventDetailPage from "./Pages/EventDetailed/EventDetailed";
 import EventForm from "./Component/Events/EventForm/EventForm";
 import SettingsDashboard from "./Component/settings/settingsDashboard/settingsDashboard";
 import TestArea from "./TestArea/TestArea";
-
 import Navbar from "./Component/Navbar/Navbar.component";
 
 import { Container } from "semantic-ui-react";
 
 import { Route, withRouter, Switch } from "react-router-dom";
+import ModalManager from './Modal/ModalManager'
+
+
 
 class App extends React.Component {
   render() {
     return (
       <Fragment>
+        <ModalManager />
         <Route exact path="/" component={HomePage} />
         <Route
           path="/(.+)"
