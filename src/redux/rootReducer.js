@@ -8,10 +8,12 @@ import {
 import TestReducer from './Test/testReducer'
 import EventReducer from './Event/EventReducer'
 import ModalReducer from './Modal/ModalReducer'
+import UserReducer from './User/UserReducer'
 
 export default combineReducers({
     test: TestReducer,
     form: FormReducer,
     event: EventReducer,
-    modal: ModalReducer
+    modal: ModalReducer,
+    user: UserReducer
 })
