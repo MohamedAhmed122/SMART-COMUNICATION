@@ -2,15 +2,15 @@
  const dashboardEvents = [
     {
       id: '1',
-      title: 'Trip to Empire State building',
-      date: '2018-03-21',
+      title: 'Trip to The Red Square in Moscow',
+      date: '2020-07-21',
       category: 'culture',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
-      city: 'NY, USA',
-      venue: 'Empire State Building, 5th Avenue, New York, NY, USA',
+      description: 'after the pandemic situation we decided to make the best Trip for you join us to trip to the Red Square in Moscow.',
+      city: "Moscow, Russia",
+      venue: "THE RED SQUARE, Sivtsev Vrazhek Pereulok, Moscow, Russia",
       venueLatLng: {
-        lat: 40.7484405,
-        lng: -73.98566440000002
+        lat: 55.747325,
+        lng: 37.593772
       },
       hostedBy: 'Bob',
       hostPhotoURL: 'https://randomuser.me/api/portraits/men/20.jpg',

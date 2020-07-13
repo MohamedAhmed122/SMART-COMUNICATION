@@ -30,7 +30,7 @@ const Chat = () => (
             </Comment>
   
             <Comment>
-              <Comment.Avatar src="/assets/images/user.png" />
+              <Comment.Avatar src="/assets/images/user4.png" />
               <Comment.Content>
                 <Comment.Author as="a">Elliot Fu</Comment.Author>
                 <Comment.Metadata>
@@ -47,7 +47,7 @@ const Chat = () => (
               </Comment.Content>
               <Comment.Group>
                 <Comment>
-                  <Comment.Avatar src="/assets/images/user.png" />
+                  <Comment.Avatar src="/assets/images/user1.png" />
                   <Comment.Content>
                     <Comment.Author as="a">Jenny Hess</Comment.Author>
                     <Comment.Metadata>
@@ -63,7 +63,7 @@ const Chat = () => (
             </Comment>
   
             <Comment>
-              <Comment.Avatar src="/assets/images/user.png" />
+              <Comment.Avatar src="/assets/images/user2.png" />
               <Comment.Content>
                 <Comment.Author as="a">Joe Henderson</Comment.Author>
                 <Comment.Metadata>

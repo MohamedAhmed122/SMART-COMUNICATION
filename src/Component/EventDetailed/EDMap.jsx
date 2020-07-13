@@ -3,6 +3,7 @@ import { Segment, Icon } from "semantic-ui-react";
 import GoogleMapReact from "google-map-react";
 
 const EventDetailedMap = ({ lat, lng }) => {
+  console.log(lat,lng)
   const zoom = 14;
   return (
     <Segment attached="bottom">
