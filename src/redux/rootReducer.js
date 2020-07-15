@@ -12,9 +12,13 @@ import TestReducer from './Test/testReducer'
 import EventReducer from './Event/EventReducer'
 import ModalReducer from './Modal/ModalReducer'
 import UserReducer from './User/UserReducer'
+import { firebaseReducer } from 'react-redux-firebase';
+import { firestoreReducer} from 'redux-firestore'
 
 
 export default combineReducers({
+    firebase: firebaseReducer,
+    firestore:firestoreReducer,
     test: TestReducer,
     form: FormReducer,
     event: EventReducer,

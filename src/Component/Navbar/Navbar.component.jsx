@@ -102,8 +102,6 @@ class NavBar extends React.Component {
           </Menu.Item>
           <Menu.Item as={NavLink} to="/events" name="Events" />
           {authenticated &&
-          <Menu.Item as={NavLink} to="/people" name="People" />}
-          {authenticated &&
           <Menu.Item>
             <Button
               as={Link}

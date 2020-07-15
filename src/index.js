@@ -5,9 +5,11 @@ import "react-redux-toastr/lib/css/react-redux-toastr.min.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import { configureStore } from "./redux/store";
 import ScrollToTop from "./Component/ScrollToTop/scrollToTop";
 import ReduxToastr from "react-redux-toastr";
+
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
