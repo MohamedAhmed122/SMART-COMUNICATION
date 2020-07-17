@@ -3,9 +3,10 @@ import { Form, Segment, Button, Label } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 import FormInput from "../../Form/FormInput";
 import { connect } from "react-redux";
-import { login } from "../../../redux/User/UserAction";
+import { login,socialLogin } from "../../../redux/User/UserAction";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
-const LoginForm = ({ login, handleSubmit, error }) => {
+const LoginForm = ({ login, handleSubmit, error,socialLogin }) => {
   return (
     <Form size="large" onSubmit={handleSubmit(login)} autoComplete="off">
       <Segment>
@@ -31,11 +32,15 @@ const LoginForm = ({ login, handleSubmit, error }) => {
           Login
         </Button>
       </Segment>
+      <Segment>
+        <SocialLogin  socialLogin={socialLogin}/>
+      </Segment>
     </Form>
   );
 };
 const actions = {
   login,
+  socialLogin
 };
 
 export default connect(

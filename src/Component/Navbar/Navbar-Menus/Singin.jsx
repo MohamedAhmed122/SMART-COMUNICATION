@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const SignedInMenu = ({signOut, user}) => {
   return (
     <Menu.Item position="right">
-      <Image avatar spaced="right" src="/assets/images/user.png" />
-      <Dropdown pointing="top left" text={user.email}>
+      <Image avatar spaced="right" src={`${user.photoURL? user.photoURL :'/assets/images/user.png'}` } />
+      <Dropdown pointing="top left" text={user.displayName}>
         <Dropdown.Menu>
           <Dropdown.Item text="Create Event" icon="plus" />
           <Dropdown.Item text="My Events" icon="calendar" />

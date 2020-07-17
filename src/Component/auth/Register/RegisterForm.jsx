@@ -6,6 +6,7 @@ import { combineValidators, isRequired } from "revalidate";
 import { register } from "../../../redux/User/UserAction";
 // import { closeModal} from '../../../redux/Modal/ModelAction'
 import { connect } from "react-redux";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const validate = combineValidators({
   displayName: isRequired("displayName"),
@@ -56,6 +57,9 @@ const RegisterForm = ({
           >
             Register
           </Button>
+        </Segment>
+        <Segment>
+          <SocialLogin />
         </Segment>
       </Form>
     </div>

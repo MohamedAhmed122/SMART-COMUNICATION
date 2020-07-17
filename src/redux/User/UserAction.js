@@ -5,6 +5,8 @@ import {
     closeModal
 } from '../Modal/ModelAction'
 
+
+
 export const login = (creds) => {
     return async (dispatch, getState, {
         getFirebase
@@ -52,5 +54,31 @@ export const register = user =>
             throw new SubmissionError({
                 _error: error.message
             })
+        }
+    }
+
+export const socialLogin = (selectedProvider) =>
+    async (dispatch, getState, {
+        getFirebase,
+        getFirestore
+    }) => {
+        const firebase = getFirebase();
+        const firestore = getFirestore();
+        try {
+            dispatch(closeModal());
+            let user = await firebase.login({
+                provider: selectedProvider,
+                type: 'popup'
+            })
+            if (user.additionalUserInfo.isNewUser) {
+                await firestore.set(`users/${user.user.uid}`, {
+                    displayName: user.profile.displayName,
+                    photoURL: user.profile.avatarUrl,
+                    createdAt: firestore.FieldValue.serverTimestamp(),
+                    email:user.profile.email,
+                })
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
