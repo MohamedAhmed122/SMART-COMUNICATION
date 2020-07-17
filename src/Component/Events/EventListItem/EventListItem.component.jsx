@@ -39,8 +39,8 @@ const EventListItem = ({ event,  handleDelete }) => {
       <Segment secondary>
         <List horizontal>
           {attendees &&
-            attendees.map((attendee) => (
-              <EventAttendanceList attendee={attendee} key={attendee.id} />
+            Object.values(attendees).map((attendee,index) => (
+              <EventAttendanceList attendee={index} key={attendee.id} />
             ))}
         </List>
       </Segment>

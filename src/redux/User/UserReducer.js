@@ -51,7 +51,7 @@ export const signOutUser = (state, payload) => {
     return {
         ...state,
         authenticated: false,
-        currentUser: {}
+        currentUser: payload.creds.email
     }
 }
 

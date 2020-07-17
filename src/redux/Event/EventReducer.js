@@ -5,9 +5,7 @@ import {
     UPDATE_EVENT
 } from './types'
 
-const INITIAL_STATE = {
-    events: dashboardEvents
-}
+const INITIAL_STATE = {events: dashboardEvents}
 
 
 

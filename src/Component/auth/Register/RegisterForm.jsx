@@ -1,13 +1,29 @@
-import React from 'react';
-import { Form, Segment, Button } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
-import FormInput from '../../Form/FormInput' ;
-import {closeModal} from '../../../redux/Modal/ModelAction'
-import {connect} from 'react-redux'
-const RegisterForm = ({closeModal}) => {
+import React from "react";
+import { Form, Segment, Button, Label } from "semantic-ui-react";
+import { Field, reduxForm } from "redux-form";
+import FormInput from "../../Form/FormInput";
+import { combineValidators, isRequired } from "revalidate";
+import { register } from "../../../redux/User/UserAction";
+// import { closeModal} from '../../../redux/Modal/ModelAction'
+import { connect } from "react-redux";
+
+const validate = combineValidators({
+  displayName: isRequired("displayName"),
+  email: isRequired("email"),
+  password: isRequired("password"),
+});
+
+const RegisterForm = ({
+  register,
+  handleSubmit,
+  invalid,
+  pristine,
+  submitting,
+  error,
+}) => {
   return (
     <div>
-      <Form size="large">
+      <Form onSubmit={handleSubmit(register)} size="large" autoComplete="off">
         <Segment>
           <Field
             name="displayName"
@@ -27,13 +43,17 @@ const RegisterForm = ({closeModal}) => {
             component={FormInput}
             placeholder="Password"
           />
-          <Field
-            name="password"
-            type="password"
-            component={FormInput}
-            placeholder="Confirm Password"
-          />
-          <Button onClick={closeModal} fluid size="large" color="teal">
+          {error ? (
+            <Label basic color="red">
+              {error}
+            </Label>
+          ) : null}
+          <Button
+            disabled={invalid || submitting || pristine}
+            fluid
+            size="large"
+            color="teal"
+          >
             Register
           </Button>
         </Segment>
@@ -42,7 +62,10 @@ const RegisterForm = ({closeModal}) => {
   );
 };
 
-const actions={
-  closeModal
-}
-export default connect(null,actions) ( reduxForm({form : 'RegisterForm'}) (RegisterForm));
+const actions = {
+  register,
+};
+export default connect(
+  null,
+  actions
+)(reduxForm({ form: "RegisterForm", validate })(RegisterForm));

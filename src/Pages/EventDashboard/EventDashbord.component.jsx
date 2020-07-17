@@ -10,7 +10,6 @@ import {
 } from "../../redux/Event/EventActions";
 import { firestoreConnect } from "react-redux-firebase";
 
-
 class EventDashboard extends React.Component {
   handleUpadateEvent = (upadatedEvent) => {
     this.props.updateEvent(upadatedEvent);
@@ -48,10 +47,11 @@ const actions = {
   deleteEvent,
 };
 const mapSateToProps = (state) => ({
-  events: state.firestore.ordered.events
+  //  events: state.firestore.ordered.event,
+    events: state.event.events
 });
 
 export default connect(
   mapSateToProps,
   actions
-)(firestoreConnect([{ collection: "events" }])(EventDashboard));
+)(firestoreConnect([{ collection: "event" }])(EventDashboard));
