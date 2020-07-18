@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Menu, Header } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
+
 const SettingNavbar = () => (
     <Fragment>
       <Menu vertical>

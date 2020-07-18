@@ -4,6 +4,7 @@ import { Form, Label, Segment, List } from "semantic-ui-react";
 const PlaceInput = ({
   input: { value, onChange, onBlur },
   options,
+  width,
   onSelect,
   placeholder,
   meta: { touched, error },
