@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MyDropzone from "./DropZone";
 import {
   Image,
   Segment,
@@ -9,14 +8,19 @@ import {
   Button,
   Card,
 } from "semantic-ui-react";
+import Dropzone from "./DropZone";
+import CropImage from "./CropImage";
 
 const PhotosPage = () => {
-  const [files, setFile] = useState([]);
+  const [files, setFiles] = useState([]);
+  const [images, setImages] = useState(null);
+
   useEffect(() => {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     };
   }, [files]);
+
   return (
     <Segment>
       <Header dividing size="large" content="Your Photos" />
@@ -24,19 +28,26 @@ const PhotosPage = () => {
         <Grid.Row />
         <Grid.Column width={4}>
           <Header color="teal" sub content="Step 1 - Add Photo" />
-          <MyDropzone setFile={setFile} />
+          <Dropzone setFiles={setFiles} />
         </Grid.Column>
         <Grid.Column width={1} />
         <Grid.Column width={4}>
           <Header sub color="teal" content="Step 2 - Resize image" />
+          {files.length > 0 ? (
+            <CropImage setImages={setImages} imagePreview={files[0].preview} />
+          ) : null}
         </Grid.Column>
         <Grid.Column width={1} />
         <Grid.Column width={4}>
           <Header sub color="teal" content="Step 3 - Preview and Upload" />
           {files.length > 0 ? (
-            <Image
-              src={files[0].preview}
-              style={{ minHeight: "200px", minWidth: "200px" }}
+            <div
+              className="img-preview"
+              style={{
+                minHeight: "200px",
+                minWidth: "200px",
+                overflow: "hidden",
+              }}
             />
           ) : null}
         </Grid.Column>
@@ -47,12 +58,11 @@ const PhotosPage = () => {
 
       <Card.Group itemsPerRow={5}>
         <Card>
-          <Image src="https://randomuser.me/api/portraits/men/20.jpg" />
+          <Image src="https://randomuser.me/api/portraits/men/42.jpg" />
           <Button positive>Main Photo</Button>
         </Card>
-
         <Card>
-          <Image src="https://randomuser.me/api/portraits/men/20.jpg" />
+          <Image src="https://randomuser.me/api/portraits/men/31.jpg" />
           <div className="ui two buttons">
             <Button basic color="green">
               Main
